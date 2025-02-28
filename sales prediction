@@ -1,0 +1,22 @@
+import pandas as pd
+
+# Sample sales data
+data = {
+    'TransactionID': [1, 2, 3, 4, 5],
+    'Date': ['2023-01-01', '2023-01-02', '2023-01-03', '2023-01-04', '2023-01-05'],
+    'Amount': [150.00, 200.00, 50.00, 300.00, 100.00]
+}
+
+# Create DataFrame
+sales_df = pd.DataFrame(data)
+
+# Convert Date to datetime
+sales_df['Date'] = pd.to_datetime(sales_df['Date'])
+
+# Total sales
+total_sales = sales_df['Amount'].sum()
+print(f'Total Sales: ${total_sales:.2f}')
+
+# Average sales per transaction
+average_sales = sales_df['Amount'].mean()
+print(f'Average Sales per Transaction: ${average_sales:.2f}')
